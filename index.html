@@ -3,14 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>chenlei</title>
-<meta name="description" content="chenlei 的个人主页：个人项目与实验记录。">
+<title>chenlei — 个人开发者主页</title>
+<meta name="description" content="chenlei 的个人开发者主页：自建工具、脚本与实验记录。">
 <style>
   :root{
-    --bg:#ffffff; --fg:#1a1a1a; --muted:#6b7280; --line:#e5e7eb; --accent:#0f766e;
+    --bg:#ffffff; --fg:#16181d; --muted:#6b7280; --line:#e6e8ec;
+    --accent:#0f766e; --card:#fafafa;
   }
   @media (prefers-color-scheme: dark){
-    :root{ --bg:#0f1115; --fg:#e8e8e8; --muted:#9aa3ad; --line:#262b33; --accent:#5eead4; }
+    :root{ --bg:#0e1014; --fg:#e8eaed; --muted:#98a2b3; --line:#242a33;
+           --accent:#5eead4; --card:#151920; }
   }
   *{box-sizing:border-box}
   body{
@@ -18,39 +20,81 @@
     font-family:-apple-system,"Segoe UI",system-ui,"PingFang SC","Microsoft YaHei",sans-serif;
     line-height:1.75; -webkit-font-smoothing:antialiased;
   }
-  main{max-width:640px; margin:0 auto; padding:72px 24px 88px}
-  h1{font-size:30px; letter-spacing:.5px; margin:0 0 6px}
-  .tag{color:var(--muted); font-size:15px; margin:0 0 36px}
-  h2{font-size:14px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted);
-     font-weight:600; margin:40px 0 12px; padding-bottom:8px; border-bottom:1px solid var(--line)}
+  main{max-width:680px; margin:0 auto; padding:64px 24px 80px}
+  header{margin-bottom:40px}
+  h1{font-size:30px; letter-spacing:.4px; margin:0 0 8px}
+  .tag{color:var(--muted); font-size:15px; margin:0}
+  h2{font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted);
+     font-weight:600; margin:44px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line)}
   p{margin:0 0 14px}
   ul{margin:0; padding-left:18px}
-  li{margin:6px 0}
+  li{margin:7px 0}
   a{color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; transition:.15s}
   a:hover{border-bottom-color:var(--accent)}
-  footer{margin-top:56px; padding-top:18px; border-top:1px solid var(--line);
+  .item{padding:14px 16px; border:1px solid var(--line); border-radius:10px;
+        background:var(--card); margin-bottom:12px}
+  .item h3{margin:0 0 4px; font-size:16px; font-weight:600}
+  .item p{margin:0; color:var(--muted); font-size:14.5px}
+  .stack{display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:0; list-style:none}
+  .stack li{font-size:13px; color:var(--muted); border:1px solid var(--line);
+            border-radius:999px; padding:2px 11px; margin:0}
+  code{background:var(--card); border:1px solid var(--line); border-radius:5px;
+       padding:1px 6px; font-size:13.5px}
+  footer{margin-top:56px; padding-top:20px; border-top:1px solid var(--line);
          color:var(--muted); font-size:13px}
 </style>
 </head>
 <body>
 <main>
-  <h1>chenlei</h1>
-  <p class="tag">个人项目与实验记录</p>
+  <header>
+    <h1>chenlei</h1>
+    <p class="tag">个人开发者 · 自建工具与实验记录</p>
+  </header>
 
-  <p>这里放我自己做的小东西：写代码、跑数据、测工具，偶尔记录一下踩过的坑。</p>
+  <p>我做制造业现场的活儿，也自己写点东西解决手上的麻烦：批量整理文件、抓网页数据、把重复操作脚本化。这里放这些工具的做法和踩过的坑。</p>
 
-  <h2>在做的事</h2>
+  <h2>项目</h2>
+
+  <div class="item">
+    <h3>静态站点与部署流水</h3>
+    <p>用 GitHub Pages 托管个人主页，从仓库初始化、自定义域名到 HTTPS 全流程自己走一遍。源码：<a href="https://github.com/leilei520920/leilei520920.github.io">leilei520920.github.io</a></p>
+  </div>
+
+  <div class="item">
+    <h3>网页自动化与信息采集脚本</h3>
+    <p>基于浏览器调试协议写的一组小脚本：打开页面、填表单、抓接口返回、导出结果。用来把需要点很多次的重复流程变成一条命令。</p>
+  </div>
+
+  <div class="item">
+    <h3>本地文档库整理</h3>
+    <p>把散落的笔记目录做成可检索的知识库，用纯文本 + Frontmatter 管标签和状态，避免依赖专有格式。</p>
+  </div>
+
+  <h2>常用工具链</h2>
+  <ul class="stack">
+    <li>Python</li>
+    <li>JavaScript</li>
+    <li>Git / GitHub Actions</li>
+    <li>GitHub Pages</li>
+    <li>Cloudflare DNS</li>
+    <li>PowerShell</li>
+    <li>Markdown / Obsidian</li>
+  </ul>
+
+  <h2>笔记</h2>
   <ul>
-    <li>个人站点的搭建与试验，持续更新中</li>
-    <li>一些零散的技术笔记与工具尝试</li>
+    <li>为什么 <code>nslookup -type=SOA</code> 比 ping 更能判断一个域名后缀是不是还活着。</li>
+    <li>React 受控表单：直接改 <code>input.value</code> 不触发状态更新，必须走原生 setter + input 事件。</li>
+    <li>浏览器调试协议里，视口高度不够时 <code>scrollIntoView</code> 会失效，抬高 viewport 比反复滚动可靠。</li>
   </ul>
 
   <h2>联系</h2>
-  <p>邮箱：<a href="mailto:929547365@qq.com">929547365@qq.com</a></p>
+  <p>邮箱：<a href="mailto:929547365@qq.com">929547365@qq.com</a><br>
+     GitHub：<a href="https://github.com/leilei520920">github.com/leilei520920</a></p>
 
   <footer>
-    本站为个人项目主页。<br>
-    Powered by GitHub Pages · <span id="y">2026</span>
+    个人项目主页，非商业用途。<br>
+    Hosted on GitHub Pages.
   </footer>
 </main>
 </body>
